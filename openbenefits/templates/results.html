@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="panel panel-wide">
+    <div class="panel-main">
+      <p class="step-label">Step 2 of 2 · Your matches</p>
+
+      {% set count = schemes|length %}
+      <h2 class="results-title">
+        {% if count > 0 %}
+          We found {{ count }} scheme{% if count > 1 %}s{% endif %} that may be relevant for you
+          <span class="results-count-pill">{{ count }}</span>
+        {% else %}
+          No schemes matched this ruleset for your profile
+        {% endif %}
+      </h2>
+
+      <p class="lead">
+        This summary is based on the information you provided.
+      </p>
+
+      <!-- Profile chips -->
+      <div class="profile-summary">
+        <span class="chip">Age {{ user.age }}</span>
+        <span class="chip">{{ user.employment_status|capitalize }}</span>
+        <span class="chip">Income {{ user.income }}</span>
+        <span class="chip">{{ user.location|capitalize }} area</span>
+      </div>
+
+      {% if schemes %}
+        <p>
+          The schemes below appear because your profile matches the basic
+          eligibility rules in the OpenBenefits ruleset.
+        </p>
+
+        <!-- Schemes list -->
+        <ul class="scheme-list scheme-list-grid">
+          {% for scheme in schemes %}
+            <li class="scheme-card">
+              <header class="scheme-header">
+                <h3>{{ scheme.name }}</h3>
+                <span class="scheme-badge">Potential match</span>
+              </header>
+
+              <p>{{ scheme.description }}</p>
+
+              {% if scheme.official_link %}
+                <p class="scheme-link">
+                  <a href="{{ scheme.official_link }}" target="_blank" rel="noopener">
+                    View official programme details
+                  </a>
+                </p>
+              {% endif %}
+
+              {% if explanations and explanations.get(scheme.id) %}
+                <p class="scheme-ai-explanation">
+                  <strong>In simple terms:</strong> {{ explanations.get(scheme.id) }}
+                </p>
+              {% endif %}
+
+              <details class="scheme-details">
+                <summary>Why this scheme is shown</summary>
+                <ul class="reason-list">
+                  {% if scheme.criteria.min_age is not none or scheme.criteria.max_age is not none %}
+                    <li>
+                      Your age ({{ user.age }}) is within the age band
+                      {% if scheme.criteria.min_age is not none %}
+                        from {{ scheme.criteria.min_age }}
+                      {% endif %}
+                      {% if scheme.criteria.max_age is not none %}
+                        to {{ scheme.criteria.max_age }}
+                      {% endif %}.
+                    </li>
+                  {% endif %}
+
+                  {% if scheme.criteria.employment_status_in %}
+                    <li>
+                      This scheme is intended for
+                      {{ scheme.criteria.employment_status_in | join(", ") }},
+                      and you indicated that you are {{ user.employment_status }}.
+                    </li>
+                  {% endif %}
+
+                  {% if scheme.criteria.max_income is not none %}
+                    <li>
+                      Your annual household income ({{ user.income }}) is at
+                      or below the current income limit of {{ scheme.criteria.max_income }}.
+                    </li>
+                  {% endif %}
+
+                  {% if scheme.criteria.location_in %}
+                    <li>
+                      The scheme is available in: {{ scheme.criteria.location_in | join(", ") }}.
+                      You selected {{ user.location }}.
+                    </li>
+                  {% endif %}
+                </ul>
+              </details>
+
+              <p class="scheme-note">
+                This is an indicative match based on the information you
+                entered. Final eligibility and benefits are decided by the
+                programme owner at the time of application.
+              </p>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <!-- No results message -->
+        <div class="no-results">
+          <h3>We could not find a match in this demo ruleset</h3>
+          <p>
+            No schemes in the current dataset matched your profile. This does
+            <strong>not</strong> mean that you are ineligible for all public
+            programmes.
+          </p>
+          <p>
+            OpenBenefits currently uses a small sample of schemes to
+            demonstrate the idea. A full version could include many more
+            schemes from different departments.
+          </p>
+        </div>
+      {% endif %}
+
+      <div class="actions">
+        <a href="{{ url_for('web.questions') }}" class="button secondary">
+          Change your answers
+        </a>
+        <a href="{{ url_for('web.index') }}" class="button tertiary">
+          Back to home
+        </a>
+      </div>
+
+      <p class="small-text" style="margin-top: 0.75rem;">
+        This page is for guidance only. Please always refer to the official
+        scheme website for the latest rules, amounts and documents needed.
+      </p>
+    </div>
+
+    <!-- Assistant panel -->
+    <aside class="assistant-panel">
+      <h3>Ask OpenBenefits</h3>
+      <p class="assistant-intro">
+        You can ask follow‑up questions about these schemes or your situation.
+        Answers are generated by a Gemini‑powered assistant and are meant to
+        help you understand your options.
+      </p>
+
+      <div class="assistant-messages" id="assistant-messages">
+        <div class="assistant-message ai">
+          <div class="assistant-bubble">
+            Hi, I’m the OpenBenefits assistant. You can ask things like
+            “Why did this scheme appear?”, “What should I check before
+            applying?” or “Why are there not more schemes for me?”.
+          </div>
+        </div>
+      </div>
+
+      <div class="assistant-form" id="assistant-form">
+        <div class="assistant-input-row">
+          <input
+            id="assistant-input"
+            type="text"
+            placeholder="Type your question here..."
+            autocomplete="off"
+            required
+          >
+          <button
+            type="button"
+            id="assistant-send"
+            class="button primary small"
+          >
+            Ask
+          </button>
+        </div>
+        <div class="assistant-status" id="assistant-status"></div>
+      </div>
+
+      <p class="small-text" style="margin-top: 0.75rem;">
+        The assistant cannot make final decisions or process applications.
+        It can point you to information and explain things in simpler words.
+      </p>
+    </aside>
+  </section>
+{% endblock %}
+
+{% block extra_scripts %}
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Context from Flask/Jinja as a real JS object
+      const ctx = {{ {"user": user, "schemes": schemes_json} | tojson | safe }};
+      window.OPENBENEFITS_CONTEXT = ctx;
+      console.log("results page script loaded", ctx);
+
+      const messagesEl = document.getElementById("assistant-messages");
+      const inputEl = document.getElementById("assistant-input");
+      const sendBtn = document.getElementById("assistant-send");
+      const statusEl = document.getElementById("assistant-status");
+
+      if (!messagesEl || !inputEl || !sendBtn) {
+        console.warn("Assistant elements missing");
+        return;
+      }
+
+      function addAssistantMessage(role, text) {
+        const wrapper = document.createElement("div");
+        wrapper.className =
+          "assistant-message " + (role === "user" ? "user" : "ai");
+
+        const bubble = document.createElement("div");
+        bubble.className = "assistant-bubble";
+        bubble.textContent = text;
+
+        wrapper.appendChild(bubble);
+        messagesEl.appendChild(wrapper);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+      }
+
+      function setAssistantStatus(text) {
+        if (!statusEl) return;
+        statusEl.textContent = text || "";
+      }
+
+      async function sendQuestion() {
+        const question = inputEl.value.trim();
+        if (!question) return;
+
+        addAssistantMessage("user", question);
+        inputEl.value = "";
+        inputEl.focus();
+        setAssistantStatus("Thinking…");
+        sendBtn.disabled = true;
+
+        try {
+          const res = await fetch("/api/assistant", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              question,
+              user: ctx.user,
+              schemes: ctx.schemes
+            })
+          });
+
+          if (!res.ok) {
+            const text = await res.text();
+            console.error("Assistant error:", text);
+            addAssistantMessage(
+              "ai",
+              "I’m having trouble answering right now. Please try again later or refer to the official scheme information."
+            );
+          } else {
+            const data = await res.json();
+            const answer =
+              (data && data.answer) ||
+              "I’m not able to respond at the moment. Please refer to the official scheme information.";
+            addAssistantMessage("ai", answer);
+          }
+        } catch (err) {
+          console.error("Assistant error:", err);
+          addAssistantMessage(
+            "ai",
+            "Something went wrong while contacting the assistant. Please try again later."
+          );
+        } finally {
+          setAssistantStatus("");
+          sendBtn.disabled = false;
+        }
+      }
+
+      // Hook up click + Enter key
+      sendBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        sendQuestion();
+      });
+
+      inputEl.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          sendQuestion();
+        }
+      });
+    });
+  </script>
+{% endblock %}

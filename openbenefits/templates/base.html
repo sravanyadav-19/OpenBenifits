@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OpenBenefits – Eligibility advisor for public schemes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="OpenBenefits helps residents discover public schemes they may be eligible for, using simple questions and clear explanations.">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="{{ url_for('web.index') }}" class="brand">
+      <div class="brand-mark">OB</div>
+      <div class="brand-text">
+        <span class="brand-name">OpenBenefits</span>
+        <span class="brand-tagline">Eligibility advisor for public schemes</span>
+        <span class="beta-pill">Demo – TechSprint prototype</span>
+      </div>
+    </a>
+
+    <nav class="main-nav">
+      <a href="{{ url_for('web.index') }}#top">Home</a>
+      <a href="{{ url_for('web.index') }}#how-it-works">How it works</a>
+      <a href="{{ url_for('web.index') }}#why-open">Why useful</a>
+      <a href="{{ url_for('web.index') }}#about">About</a>
+    </nav>
+
+    <a class="header-cta" href="{{ url_for('web.questions') }}">
+      Start check
+    </a>
+  </div>
+</header>
+
+<main class="site-main">
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-left">
+      <strong>OpenBenefits</strong>
+      <span>Helping residents discover public schemes more easily.</span>
+    </div>
+    <div class="footer-right">
+      <span>Built for Google TechSprint – Open Innovation in Government.</span>
+      <span>This is a demo, not an official government service.</span>
+    </div>
+  </div>
+</footer>
+
+{% block extra_scripts %}{% endblock %}
+</body>
+</html>
