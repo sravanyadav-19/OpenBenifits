@@ -76,5 +76,5 @@ git init
 git add .
 git commit -m "Initial commit: OpenBenefits eligibility checker with local assistant"
 git branch -M main
-git remote add origin https://github.com/<your-username>/<your-repo-name>.git
+git remote add origin https://github.com/sravanyadav-19/OpenBenifits.git
 git push -u origin main
