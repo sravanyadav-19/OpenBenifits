@@ -1,115 +1,90 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <section class="panel panel-wide">
-    <div class="panel-main">
-      <p class="step-label">Step 1 of 2 · Your details</p>
-      <h2>Tell us a little about your situation</h2>
-      <p class="lead">
-        We use a few basic questions to understand which government schemes
-        might be relevant for you or your family. This usually takes less than
-        a minute.
-      </p>
+  <section class="panel">
+    <p class="step-label">Step 1 of 2 – Your details</p>
+    <h2>Tell us a little about your situation</h2>
+    <p class="lead">
+      We use a few basic questions to understand which government schemes
+      might be relevant for you or your family.
+    </p>
 
-      <form action="{{ url_for('web.results') }}" method="post" class="form">
-        <div class="form-grid">
-          <!-- Age -->
-          <div class="form-field">
-            <label for="age">Age <span aria-hidden="true">*</span></label>
-            <input
-              type="number"
-              name="age"
-              id="age"
-              min="0"
-              required
-            >
-            <small class="small-text">
-              Some schemes are only for young people or senior citizens.
-            </small>
-          </div>
-
-          <!-- Employment status -->
-          <div class="form-field">
-            <label for="employment_status">Current status <span aria-hidden="true">*</span></label>
-            <select name="employment_status" id="employment_status" required>
-              <option value="">Please select</option>
-              <option value="student">Student</option>
-              <option value="employed">Employed</option>
-              <option value="unemployed">Unemployed</option>
-              <option value="retired">Retired</option>
-            </select>
-            <small class="small-text">
-              Many programmes are designed especially for students, job‑seekers
-              or retired persons.
-            </small>
-          </div>
-
-          <!-- Income -->
-          <div class="form-field">
-            <label for="income">Approximate annual household income (₹) <span aria-hidden="true">*</span></label>
-            <input
-              type="number"
-              name="income"
-              id="income"
-              min="0"
-              required
-            >
-            <small class="small-text">
-              A rounded amount for the full year is enough. This helps identify
-              schemes meant for lower‑income households.
-            </small>
-          </div>
-
-          <!-- Location -->
-          <div class="form-field">
-            <label for="location">Where do you live? <span aria-hidden="true">*</span></label>
-            <select name="location" id="location" required>
-              <option value="">Please select</option>
-              <option value="urban">Urban area (city / town)</option>
-              <option value="rural">Rural area (village)</option>
-              <option value="any">Other / not sure</option>
-            </select>
-            <small class="small-text">
-              Some schemes focus on rural communities, others on urban areas.
-            </small>
-          </div>
+    <form action="{{ url_for('web.results') }}" method="post" class="form">
+      <div class="form-grid">
+        <!-- Age -->
+        <div class="form-field">
+          <label for="age">Age *</label>
+          <input
+            type="number"
+            name="age"
+            id="age"
+            min="0"
+            required
+          >
+          <small class="small-text">
+            Some schemes are only for young people or senior citizens.
+          </small>
         </div>
 
-        <div class="actions">
-          <button type="submit" class="button primary">
-            See possible schemes
-          </button>
-          <a href="{{ url_for('web.index') }}" class="button secondary">
-            Back to home
-          </a>
+        <!-- Employment status -->
+        <div class="form-field">
+          <label for="employment_status">Current status *</label>
+          <select name="employment_status" id="employment_status" required>
+            <option value="">Please select</option>
+            <option value="student">Student</option>
+            <option value="employed">Employed</option>
+            <option value="unemployed">Unemployed</option>
+            <option value="retired">Retired</option>
+          </select>
+          <small class="small-text">
+            Many programmes are designed especially for students,
+            job‑seekers or retired persons.
+          </small>
         </div>
 
-        <p class="small-text" style="margin-top: 0.8rem;">
-          The information you enter here is used only to show possible schemes
-          in this session. It is not stored permanently in this demo.
-        </p>
-      </form>
-    </div>
+        <!-- Income -->
+        <div class="form-field">
+          <label for="income">Approximate annual household income (₹) *</label>
+          <input
+            type="number"
+            name="income"
+            id="income"
+            min="0"
+            required
+          >
+          <small class="small-text">
+            A rounded amount for the full year is enough.
+          </small>
+        </div>
 
-    <aside class="assistant-panel" style="max-height:none;">
-      <h3>Before you start</h3>
-      <p>
-        You do not need any documents to use this tool. Having these details in
-        mind will help you answer quickly:
+        <!-- Location -->
+        <div class="form-field">
+          <label for="location">Where do you live? *</label>
+          <select name="location" id="location" required>
+            <option value="">Please select</option>
+            <option value="urban">Urban area (city / town)</option>
+            <option value="rural">Rural area (village)</option>
+            <option value="any">Other / not sure</option>
+          </select>
+          <small class="small-text">
+            Some schemes focus on rural areas, others on urban areas.
+          </small>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="button primary">
+          See possible schemes
+        </button>
+        <a href="{{ url_for('web.index') }}" class="button secondary">
+          Back to home
+        </a>
+      </div>
+
+      <p class="small-text" style="margin-top: 0.8rem;">
+        The information you enter here is used only to show possible schemes
+        in this session. It is not stored permanently in this demo.
       </p>
-      <ul class="bullet-list">
-        <li>Your age or age group (for example, “around 20”, “above 60”).</li>
-        <li>Whether you are studying, working, looking for work or retired.</li>
-        <li>
-          A rough idea of your family’s annual income (for example, “around
-          ₹3 lakh”).
-        </li>
-        <li>Whether your home is in a village or a town/city.</li>
-      </ul>
-      <p class="small-text">
-        This tool gives an initial indication only. Final eligibility is always
-        decided by the scheme owner when you apply.
-      </p>
-    </aside>
+    </form>
   </section>
 {% endblock %}

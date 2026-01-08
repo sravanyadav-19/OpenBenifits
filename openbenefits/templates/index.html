@@ -3,31 +3,29 @@
 {% block content %}
   <!-- HERO -->
   <section class="panel panel-hero" id="top">
-    <div class="hero">
-      <div class="hero-main">
-        <h1>Find government schemes that may help you.</h1>
-        <p class="hero-lead">
-          OpenBenefits is a simple tool. Answer a few basic questions and
-          see which government schemes might match your situation.
-        </p>
+    <div class="hero-main">
+      <h1>Find government schemes that may help you.</h1>
+      <p class="hero-lead">
+        OpenBenefits is a simple tool. Answer a few basic questions and
+        see which government schemes might match your situation.
+      </p>
 
-        <ul class="hero-points">
-          <li>Made for students, parents and working people</li>
-          <li>Only basic details are asked (age, work, income, area)</li>
-          <li>Shows a clear list of schemes you can read more about</li>
-        </ul>
+      <ul class="hero-points">
+        <li>Designed for students, parents and working people</li>
+        <li>Only basic details are asked (age, work, income, area)</li>
+        <li>Shows a short, personalised list of possible schemes</li>
+      </ul>
 
-        <div class="hero-actions">
-          <a class="button primary" href="{{ url_for('web.questions') }}">
-            Start eligibility check
-          </a>
-        </div>
-
-        <p class="small-text" style="margin-top: 0.75rem;">
-          Note: This is a demo tool. It gives guidance only. Please always
-          confirm details on the official government website before applying.
-        </p>
+      <div class="hero-actions">
+        <a class="button primary" href="{{ url_for('web.questions') }}">
+          Start eligibility check
+        </a>
       </div>
+
+      <p class="small-text hero-note">
+        Note: This is a demo tool for the TechSprint. It gives guidance only.
+        Always confirm details on official government portals before applying.
+      </p>
     </div>
   </section>
 
@@ -35,30 +33,31 @@
   <section class="panel" id="how-it-works">
     <h2>How it works</h2>
     <p class="lead">
-      The process is quick and simple. It usually takes less than one minute.
+      The process is simple and usually takes less than a minute.
     </p>
 
     <div class="grid grid-3">
       <div class="card">
         <h3>1. Answer a few questions</h3>
         <p>
-          We ask about your age, if you are a student or working, your
-          approximate family income and whether you live in an urban or rural
-          area.
+          We ask about your age, whether you are studying or working,
+          your approximate family income and whether you live in an
+          urban or rural area.
         </p>
       </div>
       <div class="card">
         <h3>2. We match schemes</h3>
         <p>
-          OpenBenefits compares your answers with a list of government schemes
-          and checks where you may fit the basic rules.
+          OpenBenefits compares your answers with a rules file of
+          government schemes and checks where you may fit the basic
+          conditions.
         </p>
       </div>
       <div class="card">
         <h3>3. You see the results</h3>
         <p>
-          You get a short list of schemes with a simple explanation and links
-          to read official information.
+          You get a short list of schemes with a clear explanation of
+          why each scheme appears and links to read official information.
         </p>
       </div>
     </div>
@@ -68,8 +67,8 @@
   <section class="panel panel-muted" id="why-open">
     <h2>Why this tool is useful</h2>
     <p class="lead">
-      Many people do not know about schemes they could use. This tool helps
-      you discover options in a simple way.
+      Many people do not know which schemes may fit them. This tool
+      helps you discover options in a simple, transparent way.
     </p>
 
     <div class="grid grid-3">
@@ -77,7 +76,7 @@
         <h3>Easy to read</h3>
         <p>
           Information is written in plain language, not legal or technical
-          terms, so parents and students can read it easily.
+          terms, so parents and students can understand it easily.
         </p>
       </div>
       <div class="card">
@@ -90,8 +89,8 @@
       <div class="card">
         <h3>Works on any device</h3>
         <p>
-          You can use OpenBenefits on a phone, tablet or computer, at home
-          or at a counselling centre.
+          You can use OpenBenefits on a phone, tablet or computer,
+          at home or at a counselling centre.
         </p>
       </div>
     </div>
@@ -101,14 +100,14 @@
   <section class="panel panel-muted" id="about">
     <h2>About OpenBenefits</h2>
     <p>
-      OpenBenefits is a demonstration made for the Google TechSprint on Open
-      Innovation in Government. It shows how scheme information can be made
-      easier to use through simple rules and clear explanations.
+      OpenBenefits is a demonstration made for the Google TechSprint on
+      Open Innovation in Government. It shows how scheme information can be
+      turned into simple rules and clear explanations.
     </p>
     <p>
       This is <strong>not</strong> an official government website. The list of
-      schemes is limited and simplified. Before you apply for any scheme, always
-      read the latest information on the official government portal.
+      schemes is limited and simplified. Before you apply for any scheme,
+      always read the latest information on the official government portal.
     </p>
   </section>
 {% endblock %}

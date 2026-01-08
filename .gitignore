@@ -16,4 +16,8 @@ Thumbs.db
 
 # Misc
 project-tree.txt
+project-files.txt
 test_gemini.py
+test_gemini_new.py
+PROJECT_DUMP.txt
+*.log
