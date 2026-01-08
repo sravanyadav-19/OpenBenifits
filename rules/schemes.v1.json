@@ -1,560 +1,529 @@
 {
   "metadata": {
     "country": "India",
-    "version": "1.0.0",
-    "notes": "Demo ruleset for OpenBenefits – not official government data."
+    "version": "1.1.0",
+    "last_updated": "2026-01-08",
+    "notes": "Verified working links for Hackathon implementation."
   },
   "schemes": [
     {
-      "id": "post_matric_scholarship_sc_students_central_sector",
-      "name": "Post Matric Scholarship for SC Students (Central Sector)",
-      "description": "This scheme provides financial aid to students from Scheduled Caste communities to pursue higher education after Class 10.",
-      "official_link": "https://www.myscheme.gov.in/schemes/post-matric-scholarship-sc",
-      "criteria": {
-        "min_age": null,
-        "max_age": null,
-        "employment_status_in": [
-          "student"
-        ],
-        "max_income": 250000,
-        "location_in": null
-      }
-    },
-    {
-      "id": "national_means_cum_merit_scholarship_nmms",
-      "name": "National Means-cum-Merit Scholarship (NMMS)",
-      "description": "A merit-based scholarship for Class 8 students from economically weaker sections to encourage them to complete secondary education.",
-      "official_link": "https://www.myscheme.gov.in/schemes/nmms",
-      "criteria": {
-        "min_age": null,
-        "max_age": null,
-        "employment_status_in": [
-          "student"
-        ],
-        "max_income": 350000,
-        "location_in": null
-      }
-    },
-    {
-      "id": "pradhan_mantri_kaushal_vikas_yojana_pmkvy_short_term_training",
-      "name": "Pradhan Mantri Kaushal Vikas Yojana (PMKVY) – Short Term Training",
-      "description": "This program offers free, industry-relevant skill training to help Indian youth secure better livelihoods through certified job roles.",
-      "official_link": "https://www.myscheme.gov.in/schemes/pmkvy-stt",
+      "id": "pm_surya_ghar_muft_bijli",
+      "name": "PM Surya Ghar: Muft Bijli Yojana",
+      "description": "Provides 300 units of free electricity per month to households through rooftop solar installations with government subsidies.",
+      "official_link": "https://pmsuryaghar.gov.in/",
       "criteria": {
         "min_age": 18,
-        "max_age": 35,
-        "employment_status_in": [
-          "unemployed"
-        ],
+        "max_age": null,
+        "employment_status_in": ["any"],
         "max_income": null,
-        "location_in": null
+        "location_in": ["urban", "rural"]
       }
     },
     {
-      "id": "indira_gandhi_national_old_age_pension_scheme_ignoaps",
-      "name": "Indira Gandhi National Old Age Pension Scheme (IGNOAPS)",
-      "description": "A social security scheme providing a monthly pension to elderly citizens living below the poverty line.",
-      "official_link": "https://www.myscheme.gov.in/schemes/ignoaps",
+      "id": "pm_jan_dhan_yojana",
+      "name": "Pradhan Mantri Jan Dhan Yojana (PMJDY)",
+      "description": "A national mission for financial inclusion ensuring access to financial services like savings accounts, credit, and pensions.",
+      "official_link": "https://www.pmjdy.gov.in/",
+      "criteria": {
+        "min_age": 10,
+        "max_age": null,
+        "employment_status_in": ["any"],
+        "max_income": null,
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "pm_yasasvi_scholarship",
+      "name": "PM YASASVI Scholarship Scheme",
+      "description": "Scholarship for OBC, EBC, and DNT students in Class 9-12 or college, aimed at providing top-class education opportunities.",
+      "official_link": "https://yet.nta.ac.in/",
+      "criteria": {
+        "min_age": null,
+        "max_age": null,
+        "employment_status_in": ["student"],
+        "max_income": 250000,
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "namo_drone_didi",
+      "name": "NaMo Drone Didi Scheme",
+      "description": "Empowers women Self Help Groups (SHGs) by providing agricultural drones and training to generate sustainable livelihood.",
+      "official_link": "https://lakhpatididi.gov.in/power_to_empower/namo-drone-didi/",
+      "criteria": {
+        "min_age": 18,
+        "max_age": null,
+        "employment_status_in": ["employed"],
+        "max_income": null,
+        "location_in": ["rural"]
+      }
+    },
+    {
+      "id": "atal_vayo_abhyuday_yojana",
+      "name": "Atal Vayo Abhyuday Yojana (AVYAY)",
+      "description": "A comprehensive scheme focused on the welfare, health, and dignity of senior citizens across India.",
+      "official_link": "https://grants-msje.gov.in/",
       "criteria": {
         "min_age": 60,
         "max_age": null,
-        "employment_status_in": [
-          "retired"
-        ],
+        "employment_status_in": ["retired"],
         "max_income": null,
-        "location_in": null
+        "location_in": ["any"]
       }
     },
     {
-      "id": "pm_kisan_samman_nidhi_pm_kisan",
-      "name": "PM Kisan Samman Nidhi (PM-KISAN)",
-      "description": "An income support scheme that provides financial assistance to farmer families to manage agricultural and domestic expenses.",
-      "official_link": "https://www.myscheme.gov.in/schemes/pm-kisan",
-      "criteria": {
-        "min_age": null,
-        "max_age": null,
-        "employment_status_in": [
-          "employed"
-        ],
-        "max_income": null,
-        "location_in": [
-          "urban",
-          "rural",
-          "any"
-        ]
-      }
-    },
-
-    {
-      "id": "ayushman_bharat_pm_jay",
-      "name": "Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana (AB-PMJAY)",
-      "description": "The world's largest health assurance scheme providing ₹5 lakh annual health cover for secondary and tertiary care to poor and vulnerable families.",
-      "official_link": "https://www.myscheme.gov.in/schemes/ab-pmjay",
-      "criteria": {
-        "min_age": null,
-        "max_age": null,
-        "employment_status_in": [
-          "unemployed"
-        ],
-        "max_income": 120000,
-        "location_in": [
-          "urban",
-          "rural"
-        ]
-      }
-    },
-    {
-      "id": "sukanya_samriddhi_yojana",
-      "name": "Sukanya Samriddhi Yojana (SSY)",
-      "description": "A small savings scheme for the girl child to build a fund for her future education and marriage expenses.",
-      "official_link": "https://www.nsiindia.gov.in/InternalPage.aspx?Id_Pk=89",
-      "criteria": {
-        "min_age": 0,
-        "max_age": 10,
-        "employment_status_in": [
-          "student"
-        ],
-        "max_income": null,
-        "location_in": null
-      }
-    },
-    {
-      "id": "atal_pension_yojana",
-      "name": "Atal Pension Yojana (APY)",
-      "description": "A guaranteed pension scheme for citizens in the unorganized sector, providing a monthly pension after age 60.",
-      "official_link": "https://npstrust.org.in/about-apy",
-      "criteria": {
-        "min_age": 18,
-        "max_age": 40,
-        "employment_status_in": [
-          "employed",
-          "unemployed"
-        ],
-        "max_income": null,
-        "location_in": null
-      }
-    },
-    {
-      "id": "pm_awas_yojana_gramin",
-      "name": "Pradhan Mantri Awaas Yojana - Gramin (PMAY-G)",
-      "description": "Provides financial assistance to rural households living in dilapidated or kutcha houses to build permanent pucca homes.",
-      "official_link": "https://www.myscheme.gov.in/schemes/pmay-g",
-      "criteria": {
-        "min_age": null,
-        "max_age": null,
-        "employment_status_in": null,
-        "max_income": null,
-        "location_in": [
-          "rural"
-        ]
-      }
-    },
-    {
-      "id": "pm_awas_yojana_urban",
-      "name": "Pradhan Mantri Awas Yojana - Urban (PMAY-U)",
-      "description": "Supports urban families in acquiring or building affordable permanent houses through interest subsidies and financial aid.",
-      "official_link": "https://www.myscheme.gov.in/schemes/pmay-u",
-      "criteria": {
-        "min_age": null,
-        "max_age": null,
-        "employment_status_in": null,
-        "max_income": 1800000,
-        "location_in": [
-          "urban"
-        ]
-      }
-    },
-    {
-      "id": "kisan_credit_card",
-      "name": "Kisan Credit Card (KCC)",
-      "description": "Provides farmers with timely credit for cultivation, post-harvest expenses, and investment in agriculture-allied activities.",
-      "official_link": "https://www.myscheme.gov.in/schemes/kcc",
-      "criteria": {
-        "min_age": 18,
-        "max_age": 75,
-        "employment_status_in": [
-          "employed"
-        ],
-        "max_income": null,
-        "location_in": [
-          "rural",
-          "any"
-        ]
-      }
-    },
-    {
-      "id": "pradhan_mantri_matru_vandana_yojana",
-      "name": "Pradhan Mantri Matru Vandana Yojana (PMMVY)",
-      "description": "A cash incentive scheme for pregnant women and lactating mothers to improve health and compensate for wage loss during their first pregnancy.",
-      "official_link": "https://akola.gov.in/en/scheme/pradhan-mantri-matru-vandana-yojana-pmmvy/",
-      "criteria": {
-        "min_age": 19,
-        "max_age": null,
-        "employment_status_in": [
-          "unemployed"
-        ],
-        "max_income": 800000,
-        "location_in": null
-      }
-    },
-    {
-      "id": "stand_up_india",
-      "name": "Stand-Up India Scheme",
-      "description": "Facilitates bank loans between ₹10 lakh and ₹1 crore to SC, ST, and women entrepreneurs for starting new greenfield businesses.",
-      "official_link": "https://www.udyami.org.in/storage/schemes/file/t4CQkv4D2TsdhI3MK8KqFSnYPw6RTBBsmh7p449D.pdf",
-      "criteria": {
-        "min_age": 18,
-        "max_age": null,
-        "employment_status_in": [
-          "unemployed",
-          "employed"
-        ],
-        "max_income": null,
-        "location_in": [
-          "urban",
-          "rural",
-          "any"
-        ]
-      }
-    },
-    {
-      "id": "indira_gandhi_national_widow_pension_scheme",
-      "name": "Indira Gandhi National Widow Pension Scheme (IGNWPS)",
-      "description": "Provides a monthly pension to widows aged 40 and above who belong to families living below the poverty line.",
-      "official_link": "https://www.myscheme.gov.in/schemes/nsap-ignwps",
-      "criteria": {
-        "min_age": 40,
-        "max_age": 79,
-        "employment_status_in": [
-          "unemployed"
-        ],
-        "max_income": null,
-        "location_in": null
-      }
-    },
-    {
-      "id": "indira_gandhi_national_disability_pension_scheme",
-      "name": "Indira Gandhi National Disability Pension Scheme (IGNDPS)",
-      "description": "Provides financial assistance to persons with severe or multiple disabilities aged 18 and above from BPL households.",
-      "official_link": "https://www.myscheme.gov.in/schemes/nsap-igndps",
-      "criteria": {
-        "min_age": 18,
-        "max_age": 79,
-        "employment_status_in": [
-          "unemployed"
-        ],
-        "max_income": null,
-        "location_in": null
-      }
-    },
-    {
-      "id": "pm_shram_yogi_maan_dhan",
-      "name": "Pradhan Mantri Shram Yogi Maan-Dhan (PM-SYM)",
-      "description": "A voluntary and contributory pension scheme for unorganized workers to ensure old age financial security.",
-      "official_link": "https://eshram.gov.in/social-security-welfare-schemes",
-      "criteria": {
-        "min_age": 18,
-        "max_age": 40,
-        "employment_status_in": [
-          "employed"
-        ],
-        "max_income": 180000,
-        "location_in": null
-      }
-    },
-    {
-      "id": "pm_suraksha_bima_yojana",
-      "name": "Pradhan Mantri Suraksha Bima Yojana (PMSBY)",
-      "description": "A low-cost accidental insurance scheme offering coverage for death and disability to all savings bank account holders.",
-      "official_link": "https://eshram.gov.in/social-security-welfare-schemes",
-      "criteria": {
-        "min_age": 18,
-        "max_age": 70,
-        "employment_status_in": null,
-        "max_income": null,
-        "location_in": null
-      }
-    },
-    {
-      "id": "pm_jeevan_jyoti_bima_yojana",
-      "name": "Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY)",
-      "description": "A renewable life insurance scheme offering ₹2 lakh coverage for death due to any cause at an affordable premium.",
-      "official_link": "https://eshram.gov.in/social-security-welfare-schemes",
-      "criteria": {
-        "min_age": 18,
-        "max_age": 50,
-        "employment_status_in": null,
-        "max_income": null,
-        "location_in": null
-      }
-    },
-    {
-      "id": "pm_svanidhi",
-      "name": "PM Street Vendor’s AtmaNirbhar Nidhi (PM SVANidhi)",
-      "description": "A micro-credit facility for street vendors to access collateral-free working capital loans to restart their livelihoods.",
-      "official_link": "https://pmsvanidhi.mohua.gov.in/",
-      "criteria": {
-        "min_age": 18,
-        "max_age": null,
-        "employment_status_in": [
-          "employed"
-        ],
-        "max_income": null,
-        "location_in": [
-          "urban"
-        ]
-      }
-    },
-    {
-      "id": "pm_kisan_mandhan_yojana",
-      "name": "Pradhan Mantri Kisan Mandhan Yojana (PM-KMY)",
-      "description": "A pension scheme for small and marginal farmers providing a monthly pension of ₹3,000 after they reach age 60.",
-      "official_link": "https://eshram.gov.in/social-security-welfare-schemes",
-      "criteria": {
-        "min_age": 18,
-        "max_age": 40,
-        "employment_status_in": [
-          "employed"
-        ],
-        "max_income": null,
-        "location_in": [
-          "rural"
-        ]
-      }
-    },
-    {
-      "id": "shreshta_residential_education_for_sc_students",
-      "name": "Scheme For Residential Education For Students in High Schools in Targeted Areas (SHRESHTA)",
-      "description": "Provides high-quality residential education to meritorious SC students in private schools to ensure overall development.",
-      "official_link": "https://grants-msje.gov.in",
-      "criteria": {
-        "min_age": null,
-        "max_age": null,
-        "employment_status_in": [
-          "student"
-        ],
-        "max_income": 250000,
-        "location_in": null
-      }
-    },
-    {
-      "id": "pm_daksh_yojana",
-      "name": "Pradhan Mantri Dakshta Aur Kushalta Sampann Hitgrahi (PM-DAKSH) Yojana",
-      "description": "A multi-pronged skill development scheme for marginalized sections to increase their employability and earning potential.",
-      "official_link": "https://pmdaksh.dosje.gov.in",
-      "criteria": {
-        "min_age": 18,
-        "max_age": 45,
-        "employment_status_in": [
-          "unemployed"
-        ],
-        "max_income": null,
-        "location_in": null
-      }
-    },
-    {
-      "id": "national_fellowship_sc_students",
-      "name": "National Fellowship for Scheduled Caste Students",
-      "description": "Provides financial assistance to SC students pursuing M.Phil and Ph.D. degrees in Indian universities.",
-      "official_link": "https://nsfdc.nic.in/en/national-fellowship-for-scheduled-castes-students-nfsc",
-      "criteria": {
-        "min_age": null,
-        "max_age": null,
-        "employment_status_in": [
-          "student"
-        ],
-        "max_income": null,
-        "location_in": null
-      }
-    },
-    {
-      "id": "post_matric_scholarship_obc_students",
-      "name": "Post-Matric Scholarship for OBC Students",
-      "description": "Provides scholarships to students from Other Backward Classes pursuing post-secondary studies to reduce dropout rates.",
-      "official_link": "https://scholarships.gov.in",
-      "criteria": {
-        "min_age": null,
-        "max_age": null,
-        "employment_status_in": [
-          "student"
-        ],
-        "max_income": 150000,
-        "location_in": null
-      }
-    },
-    {
-      "id": "pre_matric_scholarship_sc_others",
-      "name": "Pre-Matric Scholarship for SC Students",
-      "description": "Financial support for SC students in Classes 9 and 10 to help them stay in school and prepare for higher education.",
-      "official_link": "https://scholarships.gov.in",
-      "criteria": {
-        "min_age": null,
-        "max_age": null,
-        "employment_status_in": [
-          "student"
-        ],
-        "max_income": 250000,
-        "location_in": null
-      }
-    },
-    {
-      "id": "pm_vishwa_karma",
+      "id": "pm_vishwakarma_portal",
       "name": "PM Vishwakarma",
-      "description": "Supports traditional artisans and craftspeople through skill training, toolkit incentives, and collateral-free credit support.",
+      "description": "Recognition and support for artisans and craftspeople through credit support, skill upgrading, and toolkit incentives.",
       "official_link": "https://pmvishwakarma.gov.in/",
       "criteria": {
         "min_age": 18,
         "max_age": null,
-        "employment_status_in": [
-          "employed"
-        ],
+        "employment_status_in": ["employed"],
         "max_income": null,
-        "location_in": null
+        "location_in": ["any"]
       }
     },
     {
-      "id": "one_stop_centre_scheme",
-      "name": "One Stop Centre Scheme",
-      "description": "Provides integrated support and assistance under one roof to women affected by violence, both in private and public spaces.",
-      "official_link": "https://wcd.nic.in/schemes/one-stop-centre-scheme-1",
+      "id": "digital_india_bhashini",
+      "name": "Digital India Bhashini",
+      "description": "AI-led translation platform to enable citizens to access digital services in their own mother tongue.",
+      "official_link": "https://bhashini.gov.in/",
       "criteria": {
         "min_age": null,
         "max_age": null,
-        "employment_status_in": null,
+        "employment_status_in": ["any"],
         "max_income": null,
-        "location_in": [
-          "urban",
-          "rural",
-          "any"
-        ]
+        "location_in": ["any"]
       }
     },
     {
-      "id": "beti_bachao_beti_padhao",
-      "name": "Beti Bachao Beti Padhao (BBBP)",
-      "description": "A campaign to generate awareness and improve the efficiency of welfare services intended for girls in India.",
-      "official_link": "https://wcd.nic.in/schemes/beti-bachao-beti-padhao",
-      "criteria": {
-        "min_age": null,
-        "max_age": null,
-        "employment_status_in": [
-          "student"
-        ],
-        "max_income": null,
-        "location_in": null
-      }
-    },
-    {
-      "id": "credit_guarantee_scheme_micro_small_enterprises",
-      "name": "Credit Guarantee Scheme for Micro and Small Enterprises",
-      "description": "Enables MSEs to access credit from financial institutions without the need for third-party guarantees or collateral.",
-      "official_link": "https://www.cgtmse.in/",
+      "id": "pm_fasal_bima_crop_insurace",
+      "name": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+      "description": "Comprehensive crop insurance for farmers against non-preventable natural risks from pre-sowing to post-harvest.",
+      "official_link": "https://pmfby.gov.in/",
       "criteria": {
         "min_age": 18,
         "max_age": null,
-        "employment_status_in": [
-          "employed"
-        ],
+        "employment_status_in": ["employed"],
         "max_income": null,
-        "location_in": null
+        "location_in": ["rural"]
       }
     },
     {
-      "id": "pm_poshan_shakti_nirman",
-      "name": "PM POSHAN (Mid Day Meal Scheme)",
-      "description": "Provides one hot cooked meal to school-going children to improve nutritional status and encourage school attendance.",
+      "id": "jal_jeevan_mission_tap",
+      "name": "Jal Jeevan Mission (Har Ghar Jal)",
+      "description": "Mission to provide Functional Household Tap Connections to every rural household by ensuring safe drinking water.",
+      "official_link": "https://jaljeevanmission.gov.in/",
+      "criteria": {
+        "min_age": null,
+        "max_age": null,
+        "employment_status_in": ["any"],
+        "max_income": null,
+        "location_in": ["rural"]
+      }
+    },
+    {
+      "id": "mahila_samman_savings",
+      "name": "Mahila Samman Savings Certificate",
+      "description": "A one-time small savings scheme for women and girls for a period of 2 years with a fixed interest rate of 7.5%.",
+      "official_link": "https://www.indiapost.gov.in/",
+      "criteria": {
+        "min_age": 0,
+        "max_age": null,
+        "employment_status_in": ["any"],
+        "max_income": null,
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "pm_poshan_shakti",
+      "name": "Pradhan Mantri Poshan Shakti Nirman (PM POSHAN)",
+      "description": "Improved mid-day meal scheme focusing on the nutritional status of children in government schools.",
       "official_link": "https://pmposhan.education.gov.in/",
       "criteria": {
         "min_age": 6,
         "max_age": 14,
-        "employment_status_in": [
-          "student"
-        ],
+        "employment_status_in": ["student"],
         "max_income": null,
-        "location_in": [
-          "urban",
-          "rural",
-          "any"
-        ]
+        "location_in": ["any"]
       }
     },
     {
-      "id": "national_family_benefit_scheme",
-      "name": "National Family Benefit Scheme (NFBS)",
-      "description": "Provides a lump sum grant to BPL households upon the death of the primary breadwinner between ages 18-59.",
-      "official_link": "https://www.myscheme.gov.in/schemes/nsap-nfbs",
+      "id": "samagra_shiksha_abhiyan",
+      "name": "Samagra Shiksha Abhiyan",
+      "description": "An integrated scheme for school education ensuring inclusive and equitable quality education from pre-school to senior secondary.",
+      "official_link": "https://samagra.education.gov.in/",
       "criteria": {
-        "min_age": 18,
+        "min_age": 4,
+        "max_age": 18,
+        "employment_status_in": ["student"],
+        "max_income": null,
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "agnipath_recruitment",
+      "name": "Agnipath Recruitment Scheme",
+      "description": "A recruitment process for the Armed Forces for youth to serve as Agniveers for a period of 4 years.",
+      "official_link": "https://www.joinindianarmy.nic.in/",
+      "criteria": {
+        "min_age": 17,
+        "max_age": 21,
+        "employment_status_in": ["unemployed"],
+        "max_income": null,
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "e_shram_worker_card",
+      "name": "e-Shram Portal (UAN Card)",
+      "description": "A national database for unorganized workers to facilitate social security benefits and accidental insurance.",
+      "official_link": "https://eshram.gov.in/",
+      "criteria": {
+        "min_age": 16,
         "max_age": 59,
-        "employment_status_in": [
-          "employed"
-        ],
+        "employment_status_in": ["employed"],
         "max_income": null,
-        "location_in": null
+        "location_in": ["any"]
       }
     },
     {
-      "id": "annapurna_scheme",
-      "name": "Annapurna Scheme",
-      "description": "Provides 10 kg of free food grains per month to senior citizens who are eligible for but not receiving old age pensions.",
-      "official_link": "https://www.myscheme.gov.in/schemes/nsap-annapurna",
-      "criteria": {
-        "min_age": 65,
-        "max_age": null,
-        "employment_status_in": [
-          "retired"
-        ],
-        "max_income": null,
-        "location_in": null
-      }
-    },
-    {
-      "id": "deendayal_antyodaya_yojana_nrlm",
-      "name": "Deendayal Antyodaya Yojana - National Rural Livelihoods Mission (DAY-NRLM)",
-      "description": "Organizes the rural poor into Self Help Groups (SHGs) and provides them with sustainable livelihood opportunities and financial aid.",
-      "official_link": "https://aajeevika.gov.in/",
-      "criteria": {
-        "min_age": 18,
-        "max_age": 60,
-        "employment_status_in": [
-          "unemployed"
-        ],
-        "max_income": null,
-        "location_in": [
-          "rural"
-        ]
-      }
-    },
-    {
-      "id": "pm_uyyala_scheme",
-      "name": "Pradhan Mantri Ujjwala Yojana (PMUY)",
-      "description": "Provides clean cooking fuel (LPG connections) to women from BPL households to improve health and reduce indoor pollution.",
-      "official_link": "https://www.pmuy.gov.in/",
+      "id": "pm_kusum_solar",
+      "name": "PM-KUSUM (Farmer Solar Energy)",
+      "description": "Installation of solar pumps and grid-connected solar power plants for farmers to ensure energy security.",
+      "official_link": "https://pmkusum.mnre.gov.in/",
       "criteria": {
         "min_age": 18,
         "max_age": null,
-        "employment_status_in": null,
+        "employment_status_in": ["employed"],
         "max_income": null,
-        "location_in": null
+        "location_in": ["rural"]
       }
     },
     {
-      "id": "pm_mudra_yojana",
+      "id": "mgnrega_employment",
+      "name": "MGNREGA Rural Employment",
+      "description": "Right to work program guaranteeing 100 days of manual unskilled work for rural households.",
+      "official_link": "https://nrega.nic.in/",
+      "criteria": {
+        "min_age": 18,
+        "max_age": null,
+        "employment_status_in": ["unemployed"],
+        "max_income": null,
+        "location_in": ["rural"]
+      }
+    },
+    {
+      "id": "ayushman_bharat_digital",
+      "name": "Ayushman Bharat Digital Mission (ABDM)",
+      "description": "Creation of digital health IDs to store medical records and provide seamless access to healthcare facilities.",
+      "official_link": "https://abdm.gov.in/",
+      "criteria": {
+        "min_age": 0,
+        "max_age": null,
+        "employment_status_in": ["any"],
+        "max_income": null,
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "pm_shri_exemplar_schools",
+      "name": "PM SHRI Schools",
+      "description": "Development of school infrastructure to act as 'exemplar' schools for the National Education Policy 2020.",
+      "official_link": "https://pmshrischools.education.gov.in/",
+      "criteria": {
+        "min_age": 4,
+        "max_age": 18,
+        "employment_status_in": ["student"],
+        "max_income": null,
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "svamitva_property_card",
+      "name": "SVAMITVA Yojana",
+      "description": "Mapping of rural inhabited lands using drones to provide 'Record of Rights' through property cards.",
+      "official_link": "https://svamitva.nic.in/",
+      "criteria": {
+        "min_age": 18,
+        "max_age": null,
+        "employment_status_in": ["any"],
+        "max_income": null,
+        "location_in": ["rural"]
+      }
+    },
+    {
+      "id": "startup_india_seed_fund",
+      "name": "Startup India Seed Fund Scheme (SISFS)",
+      "description": "Provides financial assistance to startups for proof of concept, prototype development, and market entry.",
+      "official_link": "https://seedfund.startupindia.gov.in/",
+      "criteria": {
+        "min_age": 18,
+        "max_age": null,
+        "employment_status_in": ["employed"],
+        "max_income": null,
+        "location_in": ["urban"]
+      }
+    },
+    {
+      "id": "pm_devine_northeast_dev",
+      "name": "PM-DevINE (North East)",
+      "description": "Focuses on development projects in the North Eastern Region to fund infrastructure and social development.",
+      "official_link": "https://mdoner.gov.in/",
+      "criteria": {
+        "min_age": null,
+        "max_age": null,
+        "employment_status_in": ["any"],
+        "max_income": null,
+        "location_in": ["rural", "urban"]
+      }
+    },
+    {
+      "id": "pm_usp_college_scholarship",
+      "name": "PM-USP Scholarship for College Students",
+      "description": "Central Sector scholarship for meritorious students from poor families for higher studies.",
+      "official_link": "https://scholarships.gov.in/",
+      "criteria": {
+        "min_age": null,
+        "max_age": null,
+        "employment_status_in": ["student"],
+        "max_income": 450000,
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "khelo_india_talent",
+      "name": "Khelo India Scheme",
+      "description": "Identifies and supports sports talent at a young age to represent India internationally.",
+      "official_link": "https://kheloindia.gov.in/",
+      "criteria": {
+        "min_age": 8,
+        "max_age": 25,
+        "employment_status_in": ["student"],
+        "max_income": null,
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "mission_shakti_sambal",
+      "name": "Mission Shakti (Sambal & Samarthya)",
+      "description": "An integrated mission for women safety, security, and empowerment including One Stop Centres.",
+      "official_link": "https://wcd.nic.in/schemes/mission-shakti",
+      "criteria": {
+        "min_age": null,
+        "max_age": null,
+        "employment_status_in": ["any"],
+        "max_income": null,
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "pm_daksh_skill",
+      "name": "PM-DAKSH Yojana",
+      "description": "Free skill development training for marginalized groups including SC, ST, and Safai Karamcharis.",
+      "official_link": "https://pmdaksh.dosje.gov.in/",
+      "criteria": {
+        "min_age": 18,
+        "max_age": 45,
+        "employment_status_in": ["unemployed"],
+        "max_income": 300000,
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "amrut_urban_rejuvenation",
+      "name": "AMRUT 2.0",
+      "description": "Ensures universal coverage of water supply through functional taps in all urban statutory towns.",
+      "official_link": "https://amrut.gov.in/",
+      "criteria": {
+        "min_age": null,
+        "max_age": null,
+        "employment_status_in": ["any"],
+        "max_income": null,
+        "location_in": ["urban"]
+      }
+    },
+    {
+      "id": "atal_bhujal_yojana",
+      "name": "Atal Bhujal Yojana",
+      "description": "Community-led ground water management scheme to ensure sustainable water resources.",
+      "official_link": "https://ataljal.mowr.gov.in/",
+      "criteria": {
+        "min_age": null,
+        "max_age": null,
+        "employment_status_in": ["any"],
+        "max_income": null,
+        "location_in": ["rural"]
+      }
+    },
+    {
+      "id": "national_clean_air_ncap",
+      "name": "National Clean Air Programme (NCAP)",
+      "description": "Strategy to reduce particulate matter concentration in urban air across non-attainment cities.",
+      "official_link": "https://ncap.movenvironment.gov.in/",
+      "criteria": {
+        "min_age": null,
+        "max_age": null,
+        "employment_status_in": ["any"],
+        "max_income": null,
+        "location_in": ["urban"]
+      }
+    },
+    {
+      "id": "pm_e_bus_sewa",
+      "name": "PM-eBus Sewa",
+      "description": "Boosting urban bus transport by deploying electric buses and augmenting city infrastructure.",
+      "official_link": "https://smartcities.gov.in/",
+      "criteria": {
+        "min_age": null,
+        "max_age": null,
+        "employment_status_in": ["any"],
+        "max_income": null,
+        "location_in": ["urban"]
+      }
+    },
+    {
+      "id": "skill_india_mission_portal",
+      "name": "Skill India Mission",
+      "description": "Platform for vocational training and certification to improve youth employability across sectors.",
+      "official_link": "https://www.skillindia.gov.in/",
+      "criteria": {
+        "min_age": 15,
+        "max_age": 59,
+        "employment_status_in": ["unemployed", "student"],
+        "max_income": null,
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "national_career_service_ncs",
+      "name": "National Career Service (NCS)",
+      "description": "Provides job matching, career counseling, and training services to job seekers and employers.",
+      "official_link": "https://www.ncs.gov.in/",
+      "criteria": {
+        "min_age": 14,
+        "max_age": null,
+        "employment_status_in": ["unemployed"],
+        "max_income": null,
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "pm_svanidhi_loan",
+      "name": "PM SVANidhi (Street Vendor Loan)",
+      "description": "Collateral-free working capital loan for street vendors to resume their livelihood.",
+      "official_link": "https://pmsvanidhi.mohua.gov.in/",
+      "criteria": {
+        "min_age": 18,
+        "max_age": null,
+        "employment_status_in": ["employed"],
+        "max_income": null,
+        "location_in": ["urban"]
+      }
+    },
+    {
+      "id": "ayushman_bharat_pmjay_portal",
+      "name": "Ayushman Bharat - PMJAY",
+      "description": "Health insurance providing ₹5 lakh cover per year for secondary and tertiary hospitalization.",
+      "official_link": "https://nha.gov.in/PM-JAY",
+      "criteria": {
+        "min_age": 0,
+        "max_age": null,
+        "employment_status_in": ["any"],
+        "max_income": 120000,
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "pradhan_mantri_matru_vandana",
+      "name": "PM Matru Vandana Yojana (PMMVY)",
+      "description": "Maternity benefit scheme providing cash incentives for pregnant and lactating mothers.",
+      "official_link": "https://pmmvy-cas.nic.in/",
+      "criteria": {
+        "min_age": 19,
+        "max_age": null,
+        "employment_status_in": ["unemployed"],
+        "max_income": null,
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "atal_pension_yojana_nps",
+      "name": "Atal Pension Yojana (APY)",
+      "description": "Guaranteed monthly pension for citizens in the unorganized sector starting after age 60.",
+      "official_link": "https://npstrust.org.in/about-apy",
+      "criteria": {
+        "min_age": 18,
+        "max_age": 40,
+        "employment_status_in": ["any"],
+        "max_income": null,
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "pm_mudra_loans",
       "name": "Pradhan Mantri Mudra Yojana (PMMY)",
-      "description": "Provides loans up to ₹10 lakh to non-corporate, non-farm small/micro enterprises for income-generating activities.",
+      "description": "Provides loans up to ₹10 lakh to non-corporate, non-farm small/micro enterprises.",
       "official_link": "https://www.mudra.org.in/",
       "criteria": {
         "min_age": 18,
         "max_age": null,
-        "employment_status_in": [
-          "employed"
-        ],
+        "employment_status_in": ["employed"],
         "max_income": null,
-        "location_in": [
-          "urban",
-          "rural",
-          "any"
-        ]
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "pm_kisan_income_support",
+      "name": "PM-Kisan Samman Nidhi",
+      "description": "Direct income support of ₹6,000 per year to all landholding farmer families.",
+      "official_link": "https://pmkisan.gov.in/",
+      "criteria": {
+        "min_age": 18,
+        "max_age": null,
+        "employment_status_in": ["employed"],
+        "max_income": null,
+        "location_in": ["rural"]
+      }
+    },
+    {
+      "id": "swachh_bharat_urban",
+      "name": "Swachh Bharat Mission (Urban) 2.0",
+      "description": "Aims to make cities 'Garbage Free' and ensures gray and black water management.",
+      "official_link": "https://sbmurban.org/",
+      "criteria": {
+        "min_age": null,
+        "max_age": null,
+        "employment_status_in": ["any"],
+        "max_income": null,
+        "location_in": ["urban"]
+      }
+    },
+    {
+      "id": "digital_india_land_records",
+      "name": "Digital India Land Records (DILRMP)",
+      "description": "Modernizes land record management to reduce title disputes and improve transparency.",
+      "official_link": "https://dilrmp.gov.in/",
+      "criteria": {
+        "min_age": 18,
+        "max_age": null,
+        "employment_status_in": ["any"],
+        "max_income": null,
+        "location_in": ["any"]
+      }
+    },
+    {
+      "id": "pm_shram_yogi_maan_dhan_pension",
+      "name": "PM Shram Yogi Maan-Dhan (PM-SYM)",
+      "description": "Old age protection pension for unorganized workers with a monthly income of ₹15,000 or less.",
+      "official_link": "https://maandhan.in/pmsym",
+      "criteria": {
+        "min_age": 18,
+        "max_age": 40,
+        "employment_status_in": ["employed"],
+        "max_income": 180000,
+        "location_in": ["any"]
       }
     }
   ]
