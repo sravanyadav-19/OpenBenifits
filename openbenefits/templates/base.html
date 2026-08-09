@@ -1,60 +1,147 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="blue">
 <head>
   <meta charset="utf-8">
   <title>OpenBenefits – Eligibility advisor for public schemes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
         content="OpenBenefits helps residents discover public schemes they may be eligible for, using simple questions and clear explanations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem("openbenefits-theme");
+        if (["blue", "forest", "indigo"].includes(savedTheme)) {
+          document.documentElement.dataset.theme = savedTheme;
+        }
+      } catch (error) {
+        /* Local storage may be unavailable in private browsing. */
+      }
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="{{ url_for('web.index') }}" class="brand">
-      <div class="brand-mark">OB</div>
-      <div class="brand-text">
-        <span class="brand-name">OpenBenefits</span>
-        <span class="brand-tagline">Prototype eligibility advisor for public schemes</span>
-        <span class="beta-pill">Demo – TechSprint</span>
+<div class="app-shell">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="{{ url_for('web.index') }}" class="brand" aria-label="OpenBenefits home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg class="brand-logo" viewBox="0 0 48 48" focusable="false">
+            <path class="brand-logo-line" d="M13 7h16l7 7v26H13z" />
+            <path class="brand-logo-line" d="M29 7v8h7M18 22h13M18 27h8" />
+            <circle class="brand-logo-badge" cx="30" cy="34" r="7.5" />
+            <path class="brand-logo-check" d="m26.5 34 2.4 2.5 4.8-5" />
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">OpenBenefits</span>
+          <span class="brand-tagline">Prototype eligibility advisor for public schemes</span>
+          <span class="beta-pill">Demo – TechSprint / Implemented Using AWS Services</span>
+        </span>
+      </a>
+
+      <div class="header-tools">
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a href="{{ url_for('web.index') }}#top">Home</a>
+          <a href="{{ url_for('web.index') }}#how-it-works">How it works</a>
+          <a href="{{ url_for('web.index') }}#why-open">Why useful</a>
+          <a href="{{ url_for('web.index') }}#about">About</a>
+        </nav>
+
+        <div class="header-actions">
+          <details class="theme-picker">
+            <summary class="theme-picker-trigger">
+              <span class="theme-picker-icon" aria-hidden="true">◐</span>
+              <span>Style</span>
+            </summary>
+            <div class="theme-picker-menu" role="group" aria-label="Choose a colour palette">
+              <p class="theme-picker-label">Choose a colour palette</p>
+              <button type="button" class="theme-option" data-theme-choice="blue" aria-pressed="true">
+                <span class="theme-swatch theme-swatch-blue" aria-hidden="true"></span>
+                <span>Deep blue</span>
+              </button>
+              <button type="button" class="theme-option" data-theme-choice="forest" aria-pressed="false">
+                <span class="theme-swatch theme-swatch-forest" aria-hidden="true"></span>
+                <span>Public green</span>
+              </button>
+              <button type="button" class="theme-option" data-theme-choice="indigo" aria-pressed="false">
+                <span class="theme-swatch theme-swatch-indigo" aria-hidden="true"></span>
+                <span>Indigo ink</span>
+              </button>
+            </div>
+          </details>
+
+          <a class="header-cta" href="{{ url_for('web.questions') }}">
+            Start check
+          </a>
+        </div>
       </div>
-    </a>
-
-    <nav class="main-nav">
-      <a href="{{ url_for('web.index') }}#top">Home</a>
-      <a href="{{ url_for('web.index') }}#how-it-works">How it works</a>
-      <a href="{{ url_for('web.index') }}#why-open">Why useful</a>
-      <a href="{{ url_for('web.index') }}#about">About</a>
-    </nav>
-
-    <a class="header-cta" href="{{ url_for('web.questions') }}">
-      Start check
-    </a>
-  </div>
-</header>
-
-<main class="site-main">
-  <div class="container">
-    {% block content %}{% endblock %}
-  </div>
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <div class="footer-left">
-      <strong>OpenBenefits</strong>
-      <span>Helping residents discover public schemes more easily.</span>
     </div>
-    <div class="footer-right">
-      <span>Built for Google TechSprint – Open Innovation in Government.</span>
-      <span>
-        Prototype only – scheme data and rules are simplified for demo.
-        Please always confirm details on official government portals.
-      </span>
+  </header>
+
+  <main class="site-main" id="main-content">
+    <div class="container">
+      {% block content %}{% endblock %}
     </div>
-  </div>
-</footer>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <strong>OpenBenefits</strong>
+        <span>Helping residents discover public schemes more easily.</span>
+      </div>
+      <div class="footer-right">
+        <span>Built for Google TechSprint – Open Innovation in Government.</span>
+        <span>
+          Prototype only – scheme data and rules are simplified for demo.
+          Please always confirm details on official government portals.
+        </span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const root = document.documentElement;
+    const options = document.querySelectorAll("[data-theme-choice]");
+    const validThemes = ["blue", "forest", "indigo"];
+
+    function applyTheme(theme) {
+      if (!validThemes.includes(theme)) {
+        theme = "blue";
+      }
+
+      root.dataset.theme = theme;
+      options.forEach(function (option) {
+        option.setAttribute(
+          "aria-pressed",
+          option.dataset.themeChoice === theme ? "true" : "false"
+        );
+      });
+
+      try {
+        localStorage.setItem("openbenefits-theme", theme);
+      } catch (error) {
+        /* Keep the selected style for this page if storage is unavailable. */
+      }
+    }
+
+    applyTheme(root.dataset.theme || "blue");
+
+    options.forEach(function (option) {
+      option.addEventListener("click", function () {
+        applyTheme(option.dataset.themeChoice);
+      });
+    });
+  });
+</script>
 
 {% block extra_scripts %}{% endblock %}
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2874c4afa6754e4',t:'MTc4NjI4NDE0MQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>

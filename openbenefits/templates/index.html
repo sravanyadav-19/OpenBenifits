@@ -2,8 +2,9 @@
 
 {% block content %}
   <!-- HERO -->
-  <section class="panel panel-hero" id="top">
+  <section class="panel panel-hero hero-section" id="top">
     <div class="hero-main">
+      <p class="eyebrow">PUBLIC SCHEME DISCOVERY</p>
       <h1>Find government schemes that may help you.</h1>
       <p class="hero-lead">
         OpenBenefits is a simple tool. Answer a few basic questions and
@@ -19,6 +20,7 @@
       <div class="hero-actions">
         <a class="button primary" href="{{ url_for('web.questions') }}">
           Start eligibility check
+          <span class="button-arrow" aria-hidden="true">→</span>
         </a>
       </div>
 
@@ -27,17 +29,50 @@
         Always confirm details on official government portals before applying.
       </p>
     </div>
+
+    <div class="hero-aside" aria-label="OpenBenefits overview">
+      <div class="hero-illustration" aria-hidden="true">
+        <svg viewBox="0 0 240 180" role="img" focusable="false">
+          <path class="illustration-line" d="M44 43h126a10 10 0 0 1 10 10v92H34V53a10 10 0 0 1 10-10Z" />
+          <path class="illustration-line" d="M34 67h146" />
+          <path class="illustration-line" d="M62 89h68M62 108h94M62 127h54" />
+          <circle class="illustration-seal" cx="174" cy="125" r="25" />
+          <path class="illustration-check" d="m162 125 8 8 16-18" />
+          <path class="illustration-line" d="M79 43V31h56v12" />
+        </svg>
+      </div>
+      <div class="hero-aside-grid">
+        <div class="hero-aside-item">
+          <span class="hero-aside-index">01</span>
+          <span>Basic details</span>
+        </div>
+        <div class="hero-aside-item">
+          <span class="hero-aside-index">02</span>
+          <span>Possible schemes</span>
+        </div>
+        <div class="hero-aside-item">
+          <span class="hero-aside-index">03</span>
+          <span>Clear reasons</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- HOW IT WORKS -->
   <section class="panel" id="how-it-works">
-    <h2>How it works</h2>
-    <p class="lead">
-      The process is simple and usually takes less than a minute.
-    </p>
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">A SHORT, CLEAR PROCESS</p>
+        <h2>How it works</h2>
+      </div>
+      <p class="lead">
+        The process is simple and usually takes less than a minute.
+      </p>
+    </div>
 
     <div class="grid grid-3">
-      <div class="card">
+      <div class="card step-card">
+        <p class="step-number">01</p>
         <h3>1. Answer a few questions</h3>
         <p>
           We ask about your age, whether you are studying or working,
@@ -45,7 +80,8 @@
           urban or rural area.
         </p>
       </div>
-      <div class="card">
+      <div class="card step-card">
+        <p class="step-number">02</p>
         <h3>2. We match schemes</h3>
         <p>
           OpenBenefits compares your answers with a rules file of
@@ -53,7 +89,8 @@
           conditions.
         </p>
       </div>
-      <div class="card">
+      <div class="card step-card">
+        <p class="step-number">03</p>
         <h3>3. You see the results</h3>
         <p>
           You get a short list of schemes with a clear explanation of
@@ -65,11 +102,16 @@
 
   <!-- WHY USEFUL -->
   <section class="panel panel-muted" id="why-open">
-    <h2>Why this tool is useful</h2>
-    <p class="lead">
-      Many people do not know which schemes may fit them. This tool
-      helps you discover options in a simple, transparent way.
-    </p>
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">DESIGNED FOR CLARITY</p>
+        <h2>Why this tool is useful</h2>
+      </div>
+      <p class="lead">
+        Many people do not know which schemes may fit them. This tool
+        helps you discover options in a simple, transparent way.
+      </p>
+    </div>
 
     <div class="grid grid-3">
       <div class="card">
@@ -97,17 +139,30 @@
   </section>
 
   <!-- ABOUT -->
-  <section class="panel panel-muted" id="about">
-    <h2>About OpenBenefits</h2>
-    <p>
-      OpenBenefits is a demonstration made for the Google TechSprint on
-      Open Innovation in Government. It shows how scheme information can be
-      turned into simple rules and clear explanations.
-    </p>
-    <p>
-      This is <strong>not</strong> an official government website. The list of
-      schemes is limited and simplified. Before you apply for any scheme,
-      always read the latest information on the official government portal.
-    </p>
+  <section class="panel panel-muted about-panel" id="about">
+    <div class="about-copy">
+      <p class="eyebrow">ABOUT THE DEMO</p>
+      <h2>About OpenBenefits</h2>
+      <p>
+        OpenBenefits is a demonstration made for the Google TechSprint on
+        Open Innovation in Government. It shows how scheme information can be
+        turned into simple rules and clear explanations.
+      </p>
+      <p>
+        This is <strong>not</strong> an official government website. The list of
+        schemes is limited and simplified. Before you apply for any scheme,
+        always read the latest information on the official government portal.
+      </p>
+    </div>
+    <div class="about-mark" aria-hidden="true">
+        <span class="brand-mark" aria-hidden="true">
+          <svg class="brand-logo" viewBox="0 0 48 48" focusable="false">
+            <path class="brand-logo-line" d="M13 7h16l7 7v26H13z" />
+            <path class="brand-logo-line" d="M29 7v8h7M18 22h13M18 27h8" />
+            <circle class="brand-logo-badge" cx="30" cy="34" r="7.5" />
+            <path class="brand-logo-check" d="m26.5 34 2.4 2.5 4.8-5" />
+          </svg>
+        </span>
+    </div>
   </section>
 {% endblock %}

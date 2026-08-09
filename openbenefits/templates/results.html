@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <section class="panel panel-wide">
+  <section class="panel panel-wide results-panel">
     <div class="panel-main">
       <p class="step-label">Step 2 of 2 – Your matches</p>
 
@@ -20,7 +20,7 @@
       </p>
 
       <!-- Profile chips -->
-      <div class="profile-summary">
+      <div class="profile-summary" aria-label="Your answers">
         <span class="chip">Age {{ user.age }}</span>
         <span class="chip">{{ user.employment_status|capitalize }}</span>
         <span class="chip">Income {{ user.income }}</span>
@@ -126,7 +126,7 @@
         </div>
       {% endif %}
 
-      <div class="actions">
+      <div class="actions results-actions">
         <a href="{{ url_for('web.questions') }}" class="button secondary">
           Change your answers
         </a>
@@ -135,7 +135,7 @@
         </a>
       </div>
 
-      <p class="small-text" style="margin-top: 0.75rem;">
+      <p class="small-text disclosure">
         This page is for guidance only. Please always refer to the official
         scheme website for the latest rules, amounts and documents needed.
       </p>
@@ -143,7 +143,10 @@
 
     <!-- Assistant panel -->
     <aside class="assistant-panel">
-      <h3>Ask OpenBenefits</h3>
+      <div class="assistant-heading">
+        <span class="assistant-icon" aria-hidden="true">?</span>
+        <h3>Ask OpenBenefits</h3>
+      </div>
       <p class="assistant-intro">
         Ask simple questions about the schemes shown here, such as why they
         appeared, who can apply, or what documents are usually needed.
@@ -182,7 +185,7 @@ You can ask things like:
         <div class="assistant-status" id="assistant-status"></div>
       </div>
 
-      <p class="small-text" style="margin-top: 0.75rem;">
+      <p class="small-text disclosure">
         The assistant cannot make final decisions or process applications.
         It can point you to information and explain things in simpler words.
       </p>
@@ -193,7 +196,9 @@ You can ask things like:
 {% block extra_scripts %}
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const ctx = {{ {"user": user, "schemes": schemes_json} | tojson | safe }};
+      const ctx = JSON.parse(
+        '{{ {"user": user, "schemes": schemes_json} | tojson | escapejs | safe }}'
+      );
       const messagesEl = document.getElementById("assistant-messages");
       const inputEl = document.getElementById("assistant-input");
       const sendBtn = document.getElementById("assistant-send");

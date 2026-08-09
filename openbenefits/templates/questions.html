@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <section class="panel">
-    <p class="step-label">Step 1 of 2 – Your details</p>
-    <h2>Tell us a little about your situation</h2>
-    <p class="lead">
-      We use a few basic questions to understand which government schemes
-      might be relevant for you or your family.
-    </p>
+  <section class="panel form-panel">
+    <div class="form-intro">
+      <p class="step-label">Step 1 of 2 – Your details</p>
+      <h2>Tell us a little about your situation</h2>
+      <p class="lead">
+        We use a few basic questions to understand which government schemes
+        might be relevant for you or your family.
+      </p>
+    </div>
 
     <form action="{{ url_for('web.results') }}" method="post" class="form">
       <div class="form-grid">
@@ -72,16 +74,17 @@
         </div>
       </div>
 
-      <div class="actions">
+      <div class="actions form-actions">
         <button type="submit" class="button primary">
           See possible schemes
+          <span class="button-arrow" aria-hidden="true">→</span>
         </button>
         <a href="{{ url_for('web.index') }}" class="button secondary">
           Back to home
         </a>
       </div>
 
-      <p class="small-text" style="margin-top: 0.8rem;">
+      <p class="small-text disclosure">
         The information you enter here is used only to show possible schemes
         in this session. It is not stored permanently in this demo.
       </p>
