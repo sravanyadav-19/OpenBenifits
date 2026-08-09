@@ -20,10 +20,17 @@ def create_app(config_object=DevConfig) -> Flask:
     else:
         app.config.from_object(config_object)
 
-    # Core services
-    app.extensions["rules_service"] = RulesService(
-        rules_path=app.config["RULES_FILE_PATH"]
-    )
+    # Core services — reads from DynamoDB if USE_DYNAMODB=true, else
+    # falls back to the local JSON file (used for local development).
+    if app.config.get("USE_DYNAMODB"):
+        app.extensions["rules_service"] = RulesService(
+            dynamodb_table=app.config["DYNAMODB_TABLE_NAME"],
+            aws_region=app.config["AWS_REGION"],
+        )
+    else:
+        app.extensions["rules_service"] = RulesService(
+            rules_path=app.config["RULES_FILE_PATH"]
+        )
 
     # Register blueprints
     from .routes.web import web_bp
