@@ -29,7 +29,7 @@ python run.py
 
 
 Adjust country/wording as you like.
-
+```
 ---
 
 ## 4. Remove unused files/folders if any
@@ -78,3 +78,4 @@ git commit -m "Initial commit: OpenBenefits eligibility checker with local assis
 git branch -M main
 git remote add origin https://github.com/sravanyadav-19/OpenBenifits.git
 git push -u origin main
+```
