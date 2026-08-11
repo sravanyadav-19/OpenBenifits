@@ -197,7 +197,7 @@ You can ask things like:
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const ctx = JSON.parse(
-        '{{ {"user": user, "schemes": schemes_json} | tojson | escapejs | safe }}'
+        '{{ {"user": user, "schemes": schemes_json} | tojson | safe }}'
       );
       const messagesEl = document.getElementById("assistant-messages");
       const inputEl = document.getElementById("assistant-input");
